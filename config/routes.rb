@@ -1,4 +1,13 @@
 TravelApp::Application.routes.draw do
+  
+  devise_for :admins
+  devise_for :users
+  
+  match '/profile', :to => 'pages#profile'
+  match '/update_profile', :to => 'pages#update_profile'
+  
+  root :to => "pages#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
