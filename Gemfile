@@ -7,6 +7,7 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 gem 'devise'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'rspec-rails'

@@ -1,14 +1,7 @@
 TravelApp::Application.routes.draw do
   
   resources :users
-  
-  get "posts/new"
-
-  get "posts/edit"
-
-  get "posts/show"
-
-  get "posts/create"
+  resources :posts, :only => [:new, :create, :destroy]
 
   devise_for :admins
   devise_for :users
