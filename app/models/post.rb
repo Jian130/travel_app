@@ -17,9 +17,10 @@ class Post < ActiveRecord::Base
   
   attr_accessible :message
   
-  belongs_to :user
+  #belongs_to :user
+  has_many :photos
   
-  acts_as_taggable
+  #acts_as_taggable
   
   validates :message, :presence => true, :length => { :maximum => 140 }
   validates :user_id, :presence => true

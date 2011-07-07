@@ -1,7 +1,8 @@
 TravelApp::Application.routes.draw do
-  
-  resources :users
+
+  #resources :users
   resources :posts, :only => [:new, :create, :destroy]
+  resources :photos, :only => [:new, :create, :destroy]
 
   devise_for :admins
   devise_for :users

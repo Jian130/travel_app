@@ -1,0 +1,25 @@
+<section>
+  <%= form_for @post, :html => { :multipart => true } do |f| %>
+    <%= f.error_messages %>
+    
+      <h4>upload your best view</h4>
+      
+      <%= f.fields_for :photo do |photo_f| %>
+
+        
+          <%= photo_f.file_field :photo %>
+          <%= photo_f.file_field :message %>
+        
+      <% end %>
+      
+    <div>
+      <%= f.label :message  %>
+      <%= f.text_area :message %>
+    </div>
+  
+    <div>
+      <%= f.submit "Create" %>
+    </div>
+  
+  <% end %>
+</section>

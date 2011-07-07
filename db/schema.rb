@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706083331) do
+ActiveRecord::Schema.define(:version => 20110707055925) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(:version => 20110706083331) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
+  create_table "photos", :force => true do |t|
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_content_size"
+    t.datetime "photo_updated_at"
+    t.string   "photo_message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "place_types", :force => true do |t|
     t.string   "type"
