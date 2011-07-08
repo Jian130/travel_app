@@ -1,14 +1,12 @@
 <section>
-  <%= form_for @post, :html => { :multipart => true } do |f| %>
-    <%= f.error_messages %>
-    
+  <%= form_for @post, :remote => true, :html => { :multipart => true } do |f| %>
       <h4>upload your best view</h4>
       
-      <%= f.fields_for :photo do |photo_f| %>
+      <%= f.fields_for :photos do |photo_f| %>
 
         
           <%= photo_f.file_field :photo %>
-          <%= photo_f.file_field :message %>
+          <%= photo_f.text_field :message %>
         
       <% end %>
       

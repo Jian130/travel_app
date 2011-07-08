@@ -12,6 +12,9 @@
     <%= render 'layouts/header' %>
   
     <section>
+      <!-- <% flash.each do |key, value| %>     
+              <%= content_tag(:div, value, :class => "flash #{key}") %>
+            <% end  %> -->
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>

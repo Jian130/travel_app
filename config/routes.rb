@@ -5,10 +5,13 @@ TravelApp::Application.routes.draw do
   resources :photos, :only => [:new, :create, :destroy]
 
   devise_for :admins
-  devise_for :users
   
-  match '/profile', :to => 'pages#profile'
-  match '/update_profile', :to => 'pages#update_profile'
+  devise_for :users , :controllers => { :registrations => "registrations" } do
+    post "profile", :to => "registrations#profile", :as => :profile_registration_path
+  end
+       
+  #match '/users/profile', :to => 'registrations#profile'
+  #match '/update_profile', :to => 'pages#update_profile'
   
   root :to => "pages#home"
 

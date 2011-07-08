@@ -5,9 +5,9 @@ class PagesController < ApplicationController
   def home
   end
 
-  def profile
-    @user = current_user
-  end
+  # def profile
+  #   @user = current_user
+  # end
   
   def update_profile
     @user = User.find_by_email(params[:user][:email])
