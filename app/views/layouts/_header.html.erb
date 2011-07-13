@@ -1,19 +1,20 @@
 <header>
+  <%= link_to "Home", root_path %>
   <nav>
     <ul>
       <% if user_signed_in? %>
-        <li><%= link_to "Profile", users_profile_path %>
-        <li><%= link_to "Edit Registration", edit_user_registration_path %></li>
+        <li><%= link_to "Profile", user_profile_registration_path %>
+        <!-- <li><%= link_to "Edit Registration", edit_user_registration_path %></li> -->
         <li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
       <% else %>
-        <li><%= link_to "Register", new_user_registration_path %></li>        
+        <li><%= link_to "Register", new_user_registration_path %></li>
         <li><%= link_to "Sign in", new_user_session_path %></li>
       <% end %>
     </ul>
     
     <div>
       <% if user_signed_in?  %>
-        <li><p>Hello <%= current_user.name %></p></li>
+        <li><p>Hello <%= current_user.username %></p></li>
       <% end  %>
     <div>
   </nav>

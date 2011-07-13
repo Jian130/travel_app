@@ -5,9 +5,10 @@ TravelApp::Application.routes.draw do
   resources :photos, :only => [:new, :create, :destroy]
 
   devise_for :admins
-  
+
   devise_for :users , :controllers => { :registrations => "registrations" } do
-    post "profile", :to => "registrations#profile", :as => :profile_registration_path
+    get "user/profile", :to => "registrations#user_profile", :as => :user_profile_registration
+    get "user/edit_profile", :to => "registrations#edit_user_profile", :as => :edit_user_profile_registration
   end
        
   #match '/users/profile', :to => 'registrations#profile'

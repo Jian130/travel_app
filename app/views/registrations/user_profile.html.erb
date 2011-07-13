@@ -1,0 +1,14 @@
+<h2>Profile</h2>
+
+<p><%= link_to "Edit Profile", edit_user_profile_registration_path %>
+
+<p><%= @user.username %></p>
+  
+<p><%= @user.email %></p>
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+<%= link_to "Back", :back %>

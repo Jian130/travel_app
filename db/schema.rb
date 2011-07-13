@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707055925) do
+ActiveRecord::Schema.define(:version => 20110713080310) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110707055925) do
   create_table "photos", :force => true do |t|
     t.string   "photo_file_name"
     t.string   "photo_content_type"
-    t.integer  "photo_content_size"
+    t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "photo_message"
     t.datetime "created_at"
@@ -66,6 +66,22 @@ ActiveRecord::Schema.define(:version => 20110707055925) do
     t.datetime "updated_at"
   end
 
+  create_table "profiles", :force => true do |t|
+    t.string   "avatar_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "hometown"
+    t.string   "locale"
+    t.string   "timezone"
+    t.string   "bio"
+    t.string   "web"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -96,12 +112,18 @@ ActiveRecord::Schema.define(:version => 20110707055925) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "description"
-    t.string   "avatar"
-    t.string   "hometown"
+    t.string   "username"
+    t.boolean  "private"
+    t.integer  "score"
+    t.integer  "rank"
+    t.boolean  "disable"
+    t.integer  "countries_count"
+    t.integer  "cities_count"
+    t.integer  "photos_count"
+    t.integer  "followers_count"
+    t.integer  "followings_count"
+    t.string   "last_activity"
+    t.integer  "profile_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110705080745
+# Schema version: 20110713080310
 #
 # Table name: users
 #
@@ -16,12 +16,18 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  name                   :string(255)
-#  first_name             :string(255)
-#  last_name              :string(255)
-#  description            :string(255)
-#  avatar                 :string(255)
-#  hometown               :string(255)
+#  username               :string(255)
+#  private                :boolean
+#  score                  :integer
+#  rank                   :integer
+#  disable                :boolean
+#  countries_count        :integer
+#  cities_count           :integer
+#  photos_count           :integer
+#  followers_count        :integer
+#  followings_count       :integer
+#  last_activity          :string(255)
+#  profile_id             :integer
 #
 
 class User < ActiveRecord::Base
@@ -31,10 +37,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :private
   
+  has_one :profile
   has_many :posts, :dependent => :destroy
   
-  validates :name, :presence => true
+  validates :username, :presence => true
   
 end
