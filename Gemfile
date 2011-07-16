@@ -13,7 +13,7 @@ gem 'paperclip'
 group :development do
   gem 'rspec-rails'
   gem 'rake', '~> 0.8.7'
-  gem 'annotate-models'
+  gem 'annotate'
 end
 
 group :test do

@@ -40,8 +40,17 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :private
   
   has_one :profile
+  
   has_many :posts, :dependent => :destroy
   
   validates :username, :presence => true
+  
+  after_create :create_profile
+  
+  private
+    
+    def create_profile
+      
+    end
   
 end
